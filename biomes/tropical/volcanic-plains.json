@@ -1,117 +1,145 @@
 {
-    "name": "Tropical Volcanic Plains",
-    "derivative": "THE_VOID",
+    "name": "Tropical Plains",
+    "derivative": "JUNGLE",
+    "vanillaDerivative": "JUNGLE",
     "rarity": 1,
-    "color": "#AE1313",
-    "vanillaDerivative": "THE_VOID",
-    "children": ["tropical/volcanoes"],
-    "generators": [{
-        "min": 120,
-        "max": 190,
-        "generator": "mountain"
-    }],
     "customDerivitives": [{
+        "id": "tropical",
+        "foliageColor": "#40C42B",
+        "grassColor": "#41A726",
         "category": "jungle",
-        "id": "tropical_volcanic_plains",
-        "grassColor": "#9BC20D",
-        "foliageColor": "#9CD320",
-        "fogColor": "#DD793C",
-        "downfallType": "none"
+        "waterColor": "#3AB2A2",
+        "waterFogColor": "#3AB2A2"
     }],
+    "generators": [{
+        "generator": "plain",
+        "max": 5,
+        "min": 3
+    }],
+    "childShrinkFactor": 0.8,
+    "childStyle": {
+        "style": "CELLULAR_IRIS_DOUBLE",
+        "exponent": 4.5,
+        "zoom": 0.45,
+        "fracture": {
+            "style": "SIMPLEX",
+            "exponent": 0.8,
+            "zoom": 0.4,
+            "multiplier": 8
+        }
+    },
+    "children": ["tropical/volcano"],
     "layers": [
         {
-            "style": {
-                "style": "SIMPLEX",
-                "fracture": {
-                    "style": "GLOB",
-                    "zoom": 0.2,
-                    "multiplier": 40
-                }
-            },
-            "zoom": 0.8,
+            "slopeCondition": {"maximumSlope": 4},
             "minHeight": 1,
-            "maxHeight": 5,
-            "palette": [
-                {
-                    "weight": 1,
-                    "block": "minecraft:magma_block"
-                },
-                {
-                    "weight": 3,
-                    "block": "minecraft:basalt"
-                },
-                {
-                    "weight": 1,
-                    "block": "minecraft:magma_block"
-                },
-                {"block": "minecraft:tuff"}
-            ]
+            "maxHeight": 1,
+            "palette": [{"block": "minecraft:grass_block"}]
         },
         {
+            "slopeCondition": {"maximumSlope": 4},
             "minHeight": 2,
             "maxHeight": 2,
+            "palette": [{"block": "minecraft:dirt"}]
+        },
+        {
+            "minHeight": 6,
+            "maxHeight": 10,
+            "style": {"style": "STATIC"},
             "palette": [
                 {
-                    "block": "minecraft:basalt",
-                    "data": {"axis": "x"}
+                    "block": "minecraft:stone",
+                    "weight": 4
                 },
-                {
-                    "block": "minecraft:basalt",
-                    "data": {"axis": "y"}
-                },
-                {
-                    "block": "minecraft:basalt",
-                    "data": {"axis": "z"}
-                }
+                {"block": "minecraft:andesite"},
+                {"block": "minecraft:mossy_cobblestone"},
+                {"block": "minecraft:cobblestone"}
             ]
         },
         {
             "minHeight": 3,
-            "maxHeight": 10,
-            "palette": [{"block": "minecraft:blackstone"}]
+            "maxHeight": 6,
+            "palette": [{"block": "minecraft:stone"}]
         }
     ],
-    "childStyle": {
-        "style": "SIMPLEX",
-        "zoom": 1.3,
-        "exponent": 1.9
-    },
-    "effects": [{
-        "particleAltX": 0.001,
-        "particleAltY": 0.13885,
-        "particleAltZ": 0.001,
-        "chance": 1,
-        "particleEffect": "CAMPFIRE_SIGNAL_SMOKE",
-        "particleOffset": 0,
-        "interval": 200,
-        "particleCount": 0
-    }],
-    "childShrinkFactor": 1,
-    "objects": [{
-        "place": [
-            "structures/landspike1",
-            "structures/landspike2",
-            "structures/landspike3"
-        ],
-        "chance": 1,
-        "density": 2,
-        "rotation": {
-            "enabled": true,
-            "yAxis": {
+    "decorators": [
+        {
+            "chance": 0.05,
+            "palette": [{"block": "minecraft:tall_grass"}]
+        },
+        {
+            "chance": 0.42,
+            "palette": [
+                {"block": "minecraft:grass"},
+                {"block": "minecraft:fern"}
+            ]
+        },
+        {
+            "chance": 0.003,
+            "palette": [
+                {"block": "minecraft:oxeye_daisy"},
+                {"block": "minecraft:pink_tulip"},
+                {"block": "minecraft:lily_of_the_valley"}
+            ]
+        },
+        {
+            "chance": 0.02,
+            "palette": [
+                {"block": "minecraft:dandelion"},
+                {"block": "minecraft:poppy"},
+                {"block": "minecraft:rose_bush"}
+            ]
+        }
+    ],
+    "objects": [
+        {
+            "place": [
+                "trees/jungle/cocogeneric1",
+                "trees/jungle/cocogeneric2",
+                "trees/jungle/cocogeneric3",
+                "trees/jungle/cocogeneric4",
+                "trees/jungle/cocogeneric5"
+            ],
+            "chance": 0.6,
+            "clamp": {
+                "minimumHeight": 0,
+                "maximumHeight": 125
+            },
+            "rotation": {
                 "enabled": true,
-                "interval": 90,
-                "min": -360,
-                "max": 360
+                "yAxis": {
+                    "enabled": true,
+                    "interval": 90,
+                    "min": -360,
+                    "max": 360
+                }
+            },
+            "translate": {"y": -1}
+        },
+        {
+            "mode": "PAINT",
+            "place": [
+                "rock/mrock-1",
+                "rock/mrock-2",
+                "rock/mrock-3",
+                "rock/mrock-4",
+                "rock/mrock-5"
+            ],
+            "chance": 0.04,
+            "rotation": {
+                "enabled": true,
+                "yAxis": {
+                    "enabled": true,
+                    "interval": 90,
+                    "min": -360,
+                    "max": 360
+                }
+            },
+            "translate": {
+                "x": 0,
+                "y": -1,
+                "z": 0
             }
-        },
-        "translate": {
-            "y": -20,
-            "yRandom": 20
-        },
-        "mode": "MIN_HEIGHT",
-        "edit": [{
-            "find": [{"block": "minecraft:stone"}],
-            "replace": {"palette": [{"block": "minecraft:basalt"}]}
-        }]
-    }]
+        }
+    ]
 }

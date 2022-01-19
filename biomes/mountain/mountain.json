@@ -1,66 +1,98 @@
 {
     "name": "Mountain",
-    "derivative": "WINDSWEPT_HILLS",
-    "rarity": 1,
-    "color": "#6E7D85",
-    "vanillaDerivative": "WINDSWEPT_HILLS",
-    "children": ["mountain/middle"],
-    "generators": [{
-        "min": 73,
-        "max": 145,
-        "generator": "mountain"
+    "derivative": "TAIGA",
+    "vanillaDerivative": "TAIGA",
+    "customDerivitives": [{
+        "id": "mountain",
+        "grassColor": "#80ab69",
+        "category": "extreme_hills"
     }],
-    "jigsawStructures": [
-        {
-            "rarity": 1700,
-            "structure": "pillager_outpost"
-        },
-        {
-            "rarity": 1000,
-            "structure": "village-tundra"
-        }
-    ],
+    "biomeZoom": 0.73,
+    "rarity": 1,
+    "generators": [{
+        "generator": "mountain",
+        "max": 310,
+        "min": 220
+    }],
     "layers": [
         {
             "minHeight": 1,
             "maxHeight": 1,
             "slopeCondition": {
                 "minimumSlope": 0,
-                "maximumSlope": 2.6
+                "maximumSlope": 3.1
             },
-            "palette": [{"block": "minecraft:grass_block"}]
+            "palette": [{"block": "minecraft:snow_block"}]
         },
         {
             "minHeight": 2,
             "maxHeight": 4,
-            "slopeCondition": {"minimumSlope": 3.95},
+            "style": {
+                "style": "FRACTAL_WATER",
+                "fracture": {
+                    "style": "STATIC",
+                    "multiplier": 15
+                }
+            },
+            "zoom": 0.4,
+            "slopeCondition": {
+                "minimumSlope": 3.95,
+                "maximumSlope": 6
+            },
             "palette": [
-                {"block": "minecraft:gravel"},
-                {"block": "minecraft:cyan_terracotta"}
+                {
+                    "block": "minecraft:diorite",
+                    "weight": 4
+                },
+                {
+                    "block": "minecraft:stone",
+                    "weight": 10
+                }
             ]
         },
         {
             "minHeight": 2,
-            "maxHeight": 3,
+            "maxHeight": 4,
+            "style": {"style": "STATIC"},
+            "slopeCondition": {"minimumSlope": 2.5},
             "palette": [
-                {"block": "minecraft:stone"},
-                {"block": "minecraft:andesite"},
-                {"block": "minecraft:gravel"}
+                {
+                    "block": "minecraft:smooth_basalt",
+                    "weight": 3
+                },
+                {
+                    "block": "minecraft:stone",
+                    "weight": 5
+                },
+                {
+                    "block": "minecraft:gray_concrete_powder",
+                    "weight": 3
+                },
+                {
+                    "block": "minecraft:gravel",
+                    "weight": 3
+                }
             ]
         },
         {
-            "minHeight": 6,
+            "minHeight": 2,
             "maxHeight": 18,
             "style": {"style": "STATIC"},
             "palette": [
-                {"block": "minecraft:stone"},
-                {"block": "minecraft:andesite"},
-                {"block": "minecraft:stone"}
+                {
+                    "block": "minecraft:stone",
+                    "weight": 2
+                },
+                {
+                    "block": "minecraft:andesite",
+                    "weight": 1
+                }
             ]
         }
     ],
     "slab": {
         "style": {"style": "STATIC"},
+        "slopeCondition": {"minimumSlope": 2.3},
         "palette": [
             {
                 "data": {
@@ -77,7 +109,7 @@
                 "block": "minecraft:cobblestone_slab"
             },
             {
-                "weight": 2,
+                "weight": 6,
                 "block": "minecraft:air"
             }
         ]
@@ -91,7 +123,11 @@
                 "fracture": {
                     "style": "SIMPLEX",
                     "zoom": 0.2,
-                    "multiplier": 10
+                    "multiplier": 10,
+                    "fracture": {
+                        "style": "STATIC",
+                        "multiplier": 15
+                    }
                 }
             },
             "style": {
@@ -124,6 +160,14 @@
         {
             "chance": 0.5,
             "palette": [{"block": "minecraft:grass"}]
+        },
+        {
+            "chance": 0.15,
+            "palette": [{"block": "minecraft:fern"}]
+        },
+        {
+            "chance": 0.15,
+            "palette": [{"block": "minecraft:fern"}]
         }
     ],
     "wall": {
@@ -131,7 +175,8 @@
         "palette": [
             {"block": "minecraft:stone"},
             {"block": "minecraft:andesite"},
-            {"block": "minecraft:stone"}
+            {"block": "minecraft:gravel"},
+            {"block": "minecraft:basalt"}
         ]
     }
 }

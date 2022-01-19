@@ -1,49 +1,17 @@
 {
-    "worm": {
-        "xStyle": {
-            "min": -6,
-            "max": 6,
-            "generator": {
-                "zoom": 0.6,
-                "style": "IRIS"
-            }
-        },
-        "zStyle": {
-            "min": -6,
-            "max": 6,
-            "generator": {
-                "zoom": 0.6,
-                "style": "IRIS"
-            }
-        },
-        "yStyle": {
-            "min": -6,
-            "max": 6,
-            "generator": {
-                "zoom": 3,
-                "style": "PERLIN"
-            }
-        },
-        "girth": {
-            "max": 3,
-            "min": 3
-        },
-        "maxDistance": 77,
-        "maxIterations": 128
-    },
-    "customBiome": "carving/rocky",
+    "customBiome": "caves/deep/ravines",
     "nodeThreshold": 40,
     "depthStyle": {
         "generator": {"style": "PERLIN"},
-        "max": 24,
-        "min": 14
+        "max": 7,
+        "min": 1
     },
     "angle": 50,
     "topAngle": 70,
-    "ribThickness": 5,
+    "ribThickness": 8,
     "baseWidthStyle": {
-        "generator": {"style": "FLAT"},
-        "max": 1,
+        "generator": {"style": "SIMPLEX"},
+        "max": 8,
         "min": 1
     }
 }
